@@ -1,5 +1,4 @@
 using EventManagmentAPI;
-using EventManagmentAPI.Services.Implemetations;
 
 
 public class Program

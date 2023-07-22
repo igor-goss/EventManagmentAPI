@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace EventManagmentAPI.DTOs
+﻿namespace EventManagmentAPI.DTOs
 {
     public class EventDto
     {

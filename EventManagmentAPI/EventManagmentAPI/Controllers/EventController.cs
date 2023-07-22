@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EventManagmentAPI.Models;
-using DataAccess;
 using EventManagmentAPI.Services.Implemetations;
 using AutoMapper;
 using EventManagmentAPI.DTOs;
@@ -50,7 +49,6 @@ namespace EventManagmentAPI.Controllers
 
             _eventService.CreateEvent(@event);
 
-            // Map the created Event back to EventDto to return in the response
             var createdEventDto = _mapper.Map<Event>(@event);
             return CreatedAtAction(nameof(GetEventById), new { id = createdEventDto.Id }, createdEventDto);
 
@@ -66,7 +64,6 @@ namespace EventManagmentAPI.Controllers
                 return NotFound();
             }
 
-            //_mapper.Map(eventDto, existngEvent);
 
             existingEvent.Name = eventDto.Name;
             existingEvent.Description = eventDto.Description;
