@@ -2,6 +2,14 @@
 
 Тестовое задание.
 
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/igor-goss/EventManagmentAPI.git
+```
+
 
 ## API Reference
 
