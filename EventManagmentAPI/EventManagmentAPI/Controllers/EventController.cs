@@ -11,6 +11,7 @@ namespace EventManagmentAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class EventController : ControllerBase
     {
         private readonly EventService _eventService;
@@ -41,7 +42,6 @@ namespace EventManagmentAPI.Controllers
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult CreateEvent([FromBody] EventDto eventDto) 
         {
             var @event = _mapper.Map<Event>(eventDto);
@@ -55,7 +55,6 @@ namespace EventManagmentAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        [Authorize]
         public IActionResult UpdateEvent(int id, [FromBody] EventDto eventDto)
         {
             var existingEvent = _eventService.GetEventById(id);
@@ -79,7 +78,6 @@ namespace EventManagmentAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize]
         public IActionResult DeleteEvent(int id)
         {
             var existingEvent = _eventService.GetEventById(id);

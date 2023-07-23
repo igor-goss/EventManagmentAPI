@@ -72,30 +72,26 @@ namespace EventManagmentAPI
                 });
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement()
-      {
-        {
-          new OpenApiSecurityScheme
-          {
-            Reference = new OpenApiReference
-              {
-                Type = ReferenceType.SecurityScheme,
-                Id = "Bearer"
-              },
-              Scheme = "oauth2",
-              Name = "Bearer",
-              In = ParameterLocation.Header,
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header,
 
-            },
-            new List<string>()
-          }
-        });
-            });
-
-
+                        },
+                        new List<string>()
+                        }
+                    });
+                });
 
             services.AddAutoMapper(typeof(Startup).Assembly);
-
-            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -106,9 +102,7 @@ namespace EventManagmentAPI
                 app.UseSwagger();
                 app.UseSwaggerUI(c =>
                 {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Event API V1");
-
-                    
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Event API V1");            
                 });
             }
 

@@ -1,5 +1,4 @@
-﻿// Copyright (c) Duende Software. All rights reserved.
-// See LICENSE in the project root for license information.
+﻿//This is also a modified template from Duende Identity Server 6 documentation. For more information https://docs.duendesoftware.com/identityserver/v6/quickstarts/1_client_credentials/
 
 
 using IdentityModel.Client;
