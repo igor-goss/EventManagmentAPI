@@ -50,8 +50,6 @@ Go to Client project directory
 Run the Client app
 ```bash
   dotnet run
-```bash
-  git clone https://github.com/igor-goss/EventManagmentAPI.git
 ```
 
 
