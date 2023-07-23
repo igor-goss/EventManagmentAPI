@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-.NET 6.0 or higher
+.NET 6.0 SDK or higher
 Database provider (SQL Server)
 
 ## Run Locally
