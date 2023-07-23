@@ -21,7 +21,7 @@ Clone the project
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `none` | `string` | **Can be unauthorized** |
+| `none` | `string` | Returns a list of all items |
 
 #### Get events
 
@@ -31,7 +31,7 @@ Clone the project
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Can be unauthorized** Id of item to fetch |
+| `id`      | `int` | Id of item to fetch |
 
 #### Create event
 
