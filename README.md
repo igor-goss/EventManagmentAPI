@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-.NET SDK 6.0 or higher
+.NET SDK 6.0 or higher (https://dotnet.microsoft.com/en-us/download)
 
 Database provider (SQL Server)
 
