@@ -2,12 +2,54 @@
 
 Тестовое задание.
 
+## Prerequisites
+
+.NET SDK 6.0 or higher (https://dotnet.microsoft.com/en-us/download)
+
+Database provider (SQL Server)
+
 ## Run Locally
 
 Clone the project
 
 ```bash
   git clone https://github.com/igor-goss/EventManagmentAPI.git
+```
+
+Go to the EventManagmentAPI project directory
+
+```bash
+  cd EventManagmentAPI/EventManagmentAPI
+```
+
+Run the API app
+
+```bash
+  dotnet run
+```
+
+Go to the IdentityServer project directory
+
+```bash
+  cd ..
+  cd ..
+  cd IS6\quickstart\src\IdentityServer
+```
+Run the IdentityServer app
+
+```bash
+  dotnet run
+```
+
+Go to Client project directory
+```bash 
+  cd ..
+  cd ..
+  cd IS6\quickstart\src\Client
+```
+Run the Client app
+```bash
+  dotnet run
 ```
 
 
@@ -21,7 +63,7 @@ Clone the project
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| `none` | `string` | **Can be unauthorized** |
+| `none` | `string` | Returns a list of all items |
 
 #### Get events
 
@@ -31,7 +73,7 @@ Clone the project
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `int` | **Can be unauthorized** Id of item to fetch |
+| `id`      | `int` | Id of item to fetch |
 
 #### Create event
 
