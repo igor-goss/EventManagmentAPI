@@ -9,7 +9,8 @@ namespace EventManagmentAPI.Mappings
         public MappingProfile()
         {
             CreateMap<EventDto, Event>()
-                .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name));
+                .ReverseMap()
+                .ForMember(dest => dest.Id, opt => opt.Ignore());
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using EventManagmentAPI.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EventManagmentAPI.DataAccess
 {
@@ -28,7 +29,7 @@ namespace EventManagmentAPI.DataAccess
             _dbContext.SaveChanges();
         }
 
-        public void UpdateEvent(Event @event)
+        public void UpdateEvent(Event @event) //hell
         {
             _dbContext.Events.Update(@event);
             _dbContext.SaveChanges();
@@ -36,13 +37,7 @@ namespace EventManagmentAPI.DataAccess
 
         public void DeleteEvent(int id)
         {
-            var @event = _dbContext.Events.Find(id);
-            if (@event != null)
-            {
-                _dbContext.Events.Remove(@event);
-                _dbContext.SaveChanges();
-            }
+            _dbContext.Events.Where(e => e.Id == id).ExecuteDelete();
         }
-
     }
 }

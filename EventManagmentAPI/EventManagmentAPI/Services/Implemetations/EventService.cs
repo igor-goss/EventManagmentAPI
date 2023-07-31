@@ -28,8 +28,9 @@ namespace EventManagmentAPI.Services.Implemetations
             _eventRepository.CreateEvent(@event);
         }
 
-        public void UpdateEvent(Event @event) 
+        public void UpdateEvent(int id, Event @event) //the
         {
+            @event.Id = id;
             _eventRepository.UpdateEvent(@event);
         }
 

@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using EventManagmentAPI.Models;
-using EventManagmentAPI.Services.Implemetations;
+using EventManagmentAPI.Services.Interfaces;
 using AutoMapper;
 using EventManagmentAPI.DTOs;
 using Microsoft.AspNetCore.Authorization;
-
-
+using System.Net;
 
 namespace EventManagmentAPI.Controllers
 {
@@ -14,10 +13,10 @@ namespace EventManagmentAPI.Controllers
     [Authorize]
     public class EventController : ControllerBase
     {
-        private readonly EventService _eventService;
+        private readonly IEventService _eventService;
         private readonly IMapper _mapper;
 
-        public EventController(EventService eventService, IMapper mapper)
+        public EventController(IEventService eventService, IMapper mapper)
         {
             _eventService = eventService;
             _mapper = mapper;
@@ -44,35 +43,16 @@ namespace EventManagmentAPI.Controllers
         [HttpPost]
         public IActionResult CreateEvent([FromBody] EventDto eventDto) 
         {
-            var @event = _mapper.Map<Event>(eventDto);
-            
+            _eventService.CreateEvent(_mapper.Map<Event>(eventDto));
 
-            _eventService.CreateEvent(@event);
-
-            var createdEventDto = _mapper.Map<Event>(@event);
-            return CreatedAtAction(nameof(GetEventById), new { id = createdEventDto.Id }, createdEventDto);
+            return CreatedAtAction(nameof(GetEventById), new { id = eventDto.Id }, eventDto);
 
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateEvent(int id, [FromBody] EventDto eventDto)
+        public IActionResult UpdateEvent(int id, [FromBody] EventDto eventDto) //what
         {
-            var existingEvent = _eventService.GetEventById(id);
-            if (existingEvent == null)
-            {
-                return NotFound();
-            }
-
-
-            existingEvent.Name = eventDto.Name;
-            existingEvent.Description = eventDto.Description;
-            existingEvent.Speaker = eventDto.Speaker;
-            existingEvent.DateTime = eventDto.DateTime;
-            existingEvent.Location = eventDto.Location;
-            existingEvent.Promoter = eventDto.Promoter;
-
-
-            _eventService.UpdateEvent(existingEvent);
+            _eventService.UpdateEvent(id, _mapper.Map<Event>(eventDto));
 
             return NoContent();
         }
@@ -80,15 +60,8 @@ namespace EventManagmentAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteEvent(int id)
         {
-            var existingEvent = _eventService.GetEventById(id);
-            if (existingEvent == null)
-            {
-                return NotFound();
-            }
-
-            _eventService.DeleteEvent(existingEvent.Id);
-
-            return NoContent();
+            _eventService.DeleteEvent(id);
+            return Ok();
         }
     
     }

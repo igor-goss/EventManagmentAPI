@@ -7,7 +7,7 @@ namespace EventManagmentAPI.Services.Interfaces
         IEnumerable<Event> GetAllEvents();
         Event GetEventById(int id);
         void CreateEvent(Event @event);
-        void UpdateEvent(Event @event);
+        void UpdateEvent(int id, Event @event);
         void DeleteEvent(int id);
     }
 }

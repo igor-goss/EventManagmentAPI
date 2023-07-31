@@ -2,6 +2,7 @@
 using DataAccess;
 using Microsoft.OpenApi.Models;
 using EventManagmentAPI.DataAccess;
+using EventManagmentAPI.Services.Interfaces;
 using EventManagmentAPI.Services.Implemetations;
 using Microsoft.IdentityModel.Tokens;
 
@@ -29,7 +30,7 @@ namespace EventManagmentAPI
 
             services.AddScoped<IEventRepository, EventRepository>();
 
-            services.AddScoped<EventService>();
+            services.AddScoped<IEventService ,EventService>();
 
             services.AddControllers();
 
